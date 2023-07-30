@@ -1,254 +1,173 @@
-import React, {useState} from "react";
-import {
-  Dimensions, Image,
-  ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity,
-  View
-} from "react-native";
-import Swiper from 'react-native-swiper'
-import data from "../constants";
+import React, {useCallback, useEffect, useState} from "react";
+import {Dimensions, FlatList, Image, ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import { LinearGradient } from "expo-linear-gradient"
+import database from "../data/databases.json"
+import SideLineComponent from "../components/SideLineComponent";
+import imageUtils from "../constants/imageUtils";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const ListScreen = () => {
-  return(
-    <View style={{backgroundColor:"#FFF8EA", flex:1}}>
-      <StatusBar/>
-      <ImageBackground source={require("../../assets/Halkalar.png")} resizeMode="cover" style={{flex:1}}>
-        <View style={{flexDirection:"row", justifyContent:"space-between"}}>{/*hafta sonu yazısı ve liste butonunun bulunduğu tag*/}
+const ListScreen = (props) => {
 
-          <View style={{height:88, width:137, borderBottomLeftRadius:50, borderBottomRightRadius:95, backgroundColor:"white", alignItems:"center", justifyContent:"center"}}>
-            <Image source={require("../../assets/ht_hafta_sonu_siyah.png")} style={{width:63, height:35}}/>
-          </View>
-          <TouchableOpacity style={{marginTop:26, marginRight:18}}>
-            <Image source={require("../../assets/list_logo.png")} style={{width:26, height:18}}/>
-          </TouchableOpacity>
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    setData(database.body.items);
+  }, []);
+
+  const getNews = ({item, index}) => {
+    let coverImageObject = null;
+    let headerImageObject = null;
+    if(imageUtils.hasOwnProperty(item.coverImage)){
+      coverImageObject = imageUtils[item.coverImage]
+    }
+
+    if(imageUtils.hasOwnProperty(item.headerImage)){
+      headerImageObject = imageUtils[item.headerImage]
+    }
+
+    return(
+        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent:`${item.justifyContent}`, alignItems:"center"}}>
+          {coverImageObject != null ?
+              <View style={{width:windowWidth-80, height:windowHeight-280, position:"absolute"}}>
+                <ImageBackground source={coverImageObject} style={{width:windowWidth-80, height:windowHeight-280, position:"absolute"}}/>
+                <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.9)']} style={{position: 'absolute', width: '100%', height: '100%', top: 0}}/>
+              </View>
+              : null}
+          {headerImageObject != null ? <Image source={headerImageObject} style={{width:windowWidth-120, height:windowHeight/5}} resizeMode={"cover"}/> : null}
+
+          {
+            item.videoButton &&
+                <TouchableOpacity style={{justifyContent:"center",alignItems:"center", borderWidth:2, borderColor:"white", borderRadius:50, marginBottom:30}}>
+                  <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']} style={{position: 'absolute', width: windowWidth/6, height: '100%', top: 0,borderWidth:0, borderColor:"white", borderRadius:50}}/>
+                  <Image source={require("../../assets/1x1/video2.png")} style={{marginVertical:15, width:30, height:30, marginRight:15, marginLeft:19}}/>
+                </TouchableOpacity>
+          }
+
+          <Text style={{fontSize:14, color:`${item.textColor}`}}>{item.lineOptions.title}</Text>
+
+          {
+            item.lineOptions.titleLine === true ? <View style={{borderWidth:0.6, width:windowWidth/5, borderColor:`${item.textColor}`}}/> : null
+          }
+
+          <Text style={{fontSize:22, color:`${item.textColor}`, textAlign:"center"}}>{item.lineOptions.desp}</Text>
+
+          {
+            item.lineOptions.despLine === true ? <View style={{borderWidth:0.6, width:windowWidth/3}}/> : null
+          }
+
+          {
+            item.desp !== "" ? <Text style={{fontSize:16, textAlign:"center", color:`${item.textColor}`}}>{item.desp}</Text> : null
+          }
+
+          {
+            item.lineOptions.time !== "" && item.lineOptions.dateTime !== "" ? <Text style={{fontSize:14, textAlign:"center"}}>{item.dateTime} - {item.time}</Text> : null
+          }
+          {
+            item.buttonActive === true ?
+                    <TouchableOpacity style={{borderWidth:1, borderColor:`${item.textColor}`, borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:20}}>
+                      <Text style={{fontSize:25, color:`${item.textColor}`}}>{item.buttonTitle}</Text>
+                    </TouchableOpacity> : null
+          }
+
         </View>
 
-        <Swiper
-            loop={false}
-            showsPagination={false}
-            showsButtons={false}
-            style={{marginTop:90, overflow: 'visible'}}
-            pagingEnabled={false}
-            loadMinimalSize={3}>
-          {data.map((item, index) => {
-            switch (item.itemType) {
-              case 0:
-                return (
-                  <View style={styles.slider} key={item.id.toString()}>
-                    <View style={styles.sideLineBox}>
-                      <View style={styles.sideLine}/>
-                      <View style={styles.sideLine}/>
-                    </View>
+    )
+  }
 
-                    <View style={styles.page}>
-                      <Image source={item.images[0]}
-                           resizeMode={"cover"}
-                           style={{ width:windowWidth-70, maxHeight:windowHeight-650, marginTop:20}}
-                      />
-                      <Text style={{fontSize:14, marginVertical:15}}>{item.name}</Text>
-                      <View style={{borderWidth:1, width:windowWidth/5}}/>
-                      <Text style={{fontSize:22, margin:15, textAlign:'center'}}>{item.header}</Text>
-                      <View style={{borderWidth:1, width:windowWidth/3}}/>
-                      <Text style={{fontSize:16, margin:15, textAlign:"center"}}>{item.content}</Text>
-                      <Text style={{fontSize:20, margin:15, textAlign:'center'}}>{item.date}</Text>
-                      <TouchableOpacity style={{borderWidth:1, borderColor:"#000000", borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:20}}>
-                        <Text style={{fontSize:25}}>GÖRÜNTÜLE</Text>
-                      </TouchableOpacity>
-                    </View>
+  const getAds = ({item, index}) => {
+    let firstImageObject = null;
+    let secondImageObject = null;
+    let coverAdImage = null;
 
-                    <View style={styles.number}>
-                      <Text style={{fontSize:74}}>{index+1}</Text>
-                    </View>
-                  </View>
-                )
-              case 1:
-                return (
-                  <View style={styles.slider} key={item.id.toString()}>
-                    <View style={styles.sideLineBox}>
-                      <View style={styles.sideLine}/>
-                      <View style={styles.sideLine}/>
-                    </View>
+    if(imageUtils.hasOwnProperty(item.adImages.firstAdImage)){
+      firstImageObject = imageUtils[item.adImages.firstAdImage]
+    }
 
-                    <View style={styles.page}>
-                      <ImageBackground source={item.images[0]}
-                             resizeMode={"cover"}
-                             style={{flex:1, aspectRatio:11/16,alignItems:"center", justifyContent:"center"}}
-                      >
-                        <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.9)']} style={{position: 'absolute', width: '100%', height: '100%', top: 0}}/>
-                        <View style={{position:"absolute", flex:1, justifyContent:"center",alignItems:"center", borderWidth:2, borderColor:"white", borderRadius:50}}>
-                          <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']} style={{position: 'absolute', width: '100%', height: '100%', top: 0,borderWidth:0, borderColor:"white", borderRadius:50}}/>
-                          <Image source={require("../../assets/video2.png")} style={{marginVertical:15, width:30, height:30, marginRight:15, marginLeft:19}}/>
-                        </View>
+    if(imageUtils.hasOwnProperty(item.adImages.secondAdImage)){
+      secondImageObject = imageUtils[item.adImages.secondAdImage]
+    }
 
-                        <View style={{ flex:1,width:"100%", alignItems:"center", justifyContent:"flex-end"}}>
-                          <Text style={{fontSize:14, marginBottom:15, color:"white"}}>{item.name}</Text>
-                          <View style={{borderWidth:1, width:windowWidth/5,borderColor:"white"}}/>
-                          <Text style={{fontSize:22, margin:15, textAlign:'center', color:"white"}}>{item.header}</Text>
-                          <TouchableOpacity style={{borderWidth:1, borderColor:"#FFFFFF", borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:'6%'}}>
-                            <Text style={{fontSize:25, color:"white"}}>GÖRÜNTÜLE</Text>
-                          </TouchableOpacity>
-                        </View>
-                      </ImageBackground>
-                    </View>
+    if(imageUtils.hasOwnProperty(item.coverAdImage)){
+      coverAdImage = imageUtils[item.coverAdImage]
+    }
+
+    return(
+        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent:`${item.justifyContent}`, alignItems:"center"}}>
+          {coverAdImage === null ?
+              <View>
+                {firstImageObject != null && <Image source={firstImageObject} style={{width:windowWidth-120, height:windowHeight/3.5}} resizeMode={"cover"}/>}
+
+                <Text style={{fontSize:14, color:`${item.textColor}`, textAlign:"center", fontWeight:"bold"}}>{item.lineOptions.title}</Text>
+                {secondImageObject != null && <Image source={secondImageObject} style={{width:windowWidth-120, height:windowHeight/3.5}} resizeMode={"cover"}/>}
+              </View>
 
 
 
-                    <View style={styles.number}>
-                      <Text style={{fontSize:74}}>{index+1}</Text>
-                    </View>
-                  </View>
-                )
-              case 2:
-                return (
-                  <View style={styles.slider} key={item.id.toString()}>
-                    <View style={styles.sideLineBox}>
-                      <View style={styles.sideLine}/>
-                      <View style={styles.sideLine}/>
-                    </View>
+            : coverAdImage != null &&
+              <ImageBackground source={coverAdImage} style={{width:windowWidth-80, height:windowHeight-280, position:"absolute"}}/>}
+        </View>
+    )
+  }
 
-                    <View style={styles.page}>
 
-                      <Text style={{fontSize:14, marginVertical:15}}>{item.name}</Text>
-                      <View style={{borderWidth:1, width:windowWidth/5}}/>
-                      <Text style={{fontSize:22, margin:15, textAlign:'center'}}>{item.header}</Text>
-                      <View style={{borderWidth:1, width:windowWidth/3}}/>
-                      <Text style={{fontSize:16, margin:15, textAlign:"center"}}>{item.content}</Text>
-                      <Text style={{fontSize:20, margin:15, textAlign:'center'}}>{item.date}</Text>
-                      <TouchableOpacity style={{borderWidth:1, borderColor:"#000000", borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%"}}>
-                        <Text style={{fontSize:25}}>GÖRÜNTÜLE</Text>
-                      </TouchableOpacity>
-                    </View>
+  const renderItem = useCallback(({item, index}) => {
+    return(
+        <View style={{width:windowWidth-40, alignItems:"center", justifyContent:"center"}}>
+          <SideLineComponent/>
 
-                    <View style={styles.number}>
-                      <Text style={{fontSize:74}}>{index+1}</Text>
-                    </View>
-                  </View>
-                )
-              case 3:
-                return (
-                  <View style={styles.slider} key={item.id.toString()}>
-                    <View style={styles.sideLineBox}>
-                      <View style={styles.sideLine}/>
-                      <View style={styles.sideLine}/>
-                    </View>
+          {item.type === "news" ? getNews({item, index}):
+              item.type === "ads" ? getAds({item, index}):
+              null}
 
-                    <View style={styles.page}>
-                      <Image source={item.images[0]}
-                             resizeMode={"cover"}
-                             style={{width:'85%', height:'40%', aspectRatio:4/3.2, backgroundColor:"red"}}
-                      />
-                      <Text style={{fontSize:22, marginVertical:7}}>{item.name}</Text>
-                      <Image source={item.images[1]}
-                             resizeMode={"cover"}
-                             style={{width:'85%', height:'40%', aspectRatio:4/3.2, backgroundColor:"red"}}
-                      />
-                    </View>
+          <View style={styles.number}>
+            <Text style={{fontSize:74}}>{index+1}</Text>
+          </View>
+        </View>
+    )
+  }, []);
 
-                    <View style={styles.number}>
-                      <Text style={{fontSize:74}}>{index+1}</Text>
-                    </View>
-                  </View>
-                )
-              case 4:
-                return (
-                  <View style={styles.slider} key={item.id.toString()}>
-                    <View style={styles.sideLineBox}>
-                      <View style={styles.sideLine}/>
-                      <View style={styles.sideLine}/>
-                    </View>
+  return(
+    <SafeAreaView style={{backgroundColor:"#FFF8EA", flex:1}}>
+      <View style={{flexDirection:"row", justifyContent:"space-between", height:windowHeight/10}}>
 
-                    <View style={styles.page}>
+        <TouchableOpacity
+            onPress={() => props.navigation.navigate("Home")}
+            style={{ borderBottomLeftRadius:50, borderBottomRightRadius:100, backgroundColor:"white", alignItems:"center", justifyContent:"center", width:windowWidth/3, height:"100%"}}>
+          <Image source={require("../../assets/1x1/ht_hafta_sonu_siyah.png")} style={{ height:'45%', width:"100%"}} resizeMode={"contain"}/>
+        </TouchableOpacity>
 
-                      <ImageBackground source={item.images[0]}
-                                       resizeMode={"cover"}
-                                       style={{flex:1, aspectRatio:11/16, justifyContent: 'flex-end'}}
-                      >
-                        <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.9)']} style={{position: 'absolute', width: '100%', height: '100%', top: 0}}/>
-                          <View style={{width:"100%", alignItems:"center", justifyContent:"center"}}>
-                            <Text style={{fontSize:14, marginBottom:15, color:"white"}}>{item.name}</Text>
-                            <View style={{borderWidth:1, width:windowWidth/5,borderColor:"white"}}/>
-                            <Text style={{fontSize:22, margin:15, textAlign:'center', color:"white"}}>{item.header}</Text>
-                            <TouchableOpacity style={{borderWidth:1, borderColor:"#FFFFFF", borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"17%"}}>
-                              <Text style={{fontSize:25, color:"white"}}>GÖRÜNTÜLE</Text>
-                            </TouchableOpacity>
-                          </View>
-                      </ImageBackground>
-                    </View>
+        <TouchableOpacity style={{marginTop:'6%', marginRight:'6%'}}>
+          <Image source={require("../../assets/1x1/list_logo.png")} resizeMode={"contain"} style={{width:30, height:30}}/>
+        </TouchableOpacity>
+      </View>
 
-                    <View style={styles.number}>
-                      <Text style={{fontSize:74}}>{index+1}</Text>
-                    </View>
-                  </View>
-                )
-              case 5:
-                return (
-                  <View style={styles.slider} key={item.id.toString()}>
-                    <View style={styles.sideLineBox}>
-                      <View style={styles.sideLine}/>
-                      <View style={styles.sideLine}/>
-                    </View>
-
-                    <View style={styles.page}>
-                      <Image source={item.images[0]}
-                             resizeMode={"cover"}
-                             style={{flex:1, aspectRatio:11/16}}
-                      />
-
-                    </View>
-
-                    <View style={styles.number}>
-                      <Text style={{fontSize:74}}>{index+1}</Text>
-                    </View>
-                  </View>
-                )
-            }
-          })}
-        </Swiper>
+      <ImageBackground source={require("../../assets/1x1/Halkalar.png")} resizeMode="cover" style={{flex:1}}>
+        <FlatList data={data}
+                  renderItem={renderItem}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  windowSize={11}
+                  disableVirtualization={true}
+                  maxToRenderPerBatch={15}
+                  contentContainerStyle={{ alignItems:"center", marginTop:windowHeight/10}}
+                  />
       </ImageBackground>
-      <Text style={{fontSize:10, textAlign:"center", height:40}}>Copyright © 2020 - Tüm hakları saklıdır. Habertürk Gazetecilik A.Ş.</Text>
-    </View>
+      <View style={{height:windowHeight/15, alignItems:"center", justifyContent:"center"}}>
+        <Text style={{fontSize:10,}}>Copyright © 2020 - Tüm hakları saklıdır. Habertürk Gazetecilik A.Ş.</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  slider: {
-    width:windowWidth,
-    height:windowHeight-220,
-
-  },
-  page: {
-    backgroundColor:"#FFFFFF",
-    flex:1,
-    marginLeft:20,
-    marginRight:20,
-    zIndex:1,
-    alignItems:"center",
-    justifyContent:"center"
-  },
-  sideLineBox: {
-    width:windowWidth,
-    height:windowHeight-276,
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
-    position:"absolute",
-    zIndex:2
-  },
-  sideLine: {
-    height:2,
-    width:35,
-    backgroundColor:"#E9D29E"
-  },
   number: {
     width:windowWidth,
     alignItems:"center",
-    position: "relative",
-    zIndex:0,
-    marginTop:-50
-  }
+    marginTop:- (windowHeight/20),
+    zIndex:-1,
+  },
 })
 
 export default ListScreen;
