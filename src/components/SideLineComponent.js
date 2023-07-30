@@ -1,5 +1,9 @@
 import React from "react";
-import {StyleSheet, View} from "react-native";
+import {Dimensions, StyleSheet, View} from "react-native";
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 
 
 const SideLineComponent = () => {
@@ -15,18 +19,9 @@ const SideLineComponent = () => {
 
 const styles = StyleSheet.create({
 
-  page: {
-    backgroundColor:"#FFFFFF",
-    flex:1,
-    marginLeft:20,
-    marginRight:20,
-    zIndex:1,
-    alignItems:"center",
-    justifyContent:"center"
-  },
   sideLineBox: {
     width:windowWidth,
-    height:windowHeight-276,
+    height:windowHeight-800,
     flexDirection:"row",
     justifyContent:"space-between",
     alignItems:"center",
@@ -35,7 +30,7 @@ const styles = StyleSheet.create({
   },
   sideLine: {
     height:2,
-    width:35,
+    width:50,
     backgroundColor:"#E9D29E"
   },
   number: {
