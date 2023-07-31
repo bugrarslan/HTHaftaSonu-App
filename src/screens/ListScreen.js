@@ -28,7 +28,7 @@ const ListScreen = (props) => {
     }
 
     return(
-        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent:`${item.justifyContent}`, alignItems:"center"}}>
+        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent: item.coverImage ? 'flex-end' : 'space-evenly', alignItems:"center"}}>
           {coverImageObject != null ?
               <View style={{width:windowWidth-80, height:windowHeight-280, position:"absolute"}}>
                 <ImageBackground source={coverImageObject} style={{width:windowWidth-80, height:windowHeight-280, position:"absolute"}}/>
@@ -94,7 +94,7 @@ const ListScreen = (props) => {
     }
 
     return(
-        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent:`${item.justifyContent}`, alignItems:"center"}}>
+        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent: item.coverImage ? 'flex-end' : 'space-evenly', alignItems:"center"}}>
           {coverAdImage === null ?
               <View>
                 {firstImageObject != null && <Image source={firstImageObject} style={{width:windowWidth-120, height:windowHeight/3.5}} resizeMode={"cover"}/>}
