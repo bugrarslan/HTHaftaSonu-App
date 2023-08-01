@@ -6,5 +6,6 @@ export default imageUtils = {
   party: require('../../assets/11x16/party.png'),
   car: require('../../assets/16x9/car.png'),
   woman: require('../../assets/11x16/woman.png'),
+  agency:require('../../assets/1x1/agency.png')
 };
 

@@ -1,9 +1,22 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {Dimensions, FlatList, Image, ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  ImageBackground,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient"
 import database from "../data/databases.json"
 import SideLineComponent from "../components/SideLineComponent";
 import imageUtils from "../constants/imageUtils";
+import HeaderBarComponent from "../components/HeaderBarComponent";
+import FooterBarComponent from "../components/FooterBarComponent";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -66,7 +79,9 @@ const ListScreen = (props) => {
           }
           {
             item.buttonActive === true ?
-                    <TouchableOpacity style={{borderWidth:1, borderColor:`${item.textColor}`, borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:20}}>
+                    <TouchableOpacity
+                        onPress={() => props.navigation.navigate("Detail", item.id)}
+                        style={{borderWidth:1, borderColor:`${item.textColor}`, borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:20}}>
                       <Text style={{fontSize:25, color:`${item.textColor}`}}>{item.buttonTitle}</Text>
                     </TouchableOpacity> : null
           }
@@ -94,7 +109,7 @@ const ListScreen = (props) => {
     }
 
     return(
-        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent: item.coverImage ? 'flex-end' : 'space-evenly', alignItems:"center"}}>
+        <View style={{width:windowWidth-80, height:windowHeight-280, backgroundColor:"#FFFFFF", justifyContent: item.coverAdImage ? 'flex-end' : 'space-evenly', alignItems:"center"}}>
           {coverAdImage === null ?
               <View>
                 {firstImageObject != null && <Image source={firstImageObject} style={{width:windowWidth-120, height:windowHeight/3.5}} resizeMode={"cover"}/>}
@@ -130,19 +145,8 @@ const ListScreen = (props) => {
 
   return(
     <SafeAreaView style={{backgroundColor:"#FFF8EA", flex:1}}>
-      <View style={{flexDirection:"row", justifyContent:"space-between", height:windowHeight/10}}>
-
-        <TouchableOpacity
-            onPress={() => props.navigation.navigate("Home")}
-            style={{ borderBottomLeftRadius:50, borderBottomRightRadius:100, backgroundColor:"white", alignItems:"center", justifyContent:"center", width:windowWidth/3, height:"100%"}}>
-          <Image source={require("../../assets/1x1/ht_hafta_sonu_siyah.png")} style={{ height:'45%', width:"100%"}} resizeMode={"contain"}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={{marginTop:'6%', marginRight:'6%'}}>
-          <Image source={require("../../assets/1x1/list_logo.png")} resizeMode={"contain"} style={{width:30, height:30}}/>
-        </TouchableOpacity>
-      </View>
-
+      <StatusBar/>
+      <HeaderBarComponent navigation={props.navigation}/>
       <ImageBackground source={require("../../assets/1x1/Halkalar.png")} resizeMode="cover" style={{flex:1}}>
         <FlatList data={data}
                   renderItem={renderItem}
@@ -154,9 +158,7 @@ const ListScreen = (props) => {
                   contentContainerStyle={{ alignItems:"center", marginTop:windowHeight/10}}
                   />
       </ImageBackground>
-      <View style={{height:windowHeight/15, alignItems:"center", justifyContent:"center"}}>
-        <Text style={{fontSize:10,}}>Copyright © 2020 - Tüm hakları saklıdır. Habertürk Gazetecilik A.Ş.</Text>
-      </View>
+      <FooterBarComponent/>
     </SafeAreaView>
   )
 }

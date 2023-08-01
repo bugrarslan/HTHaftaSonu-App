@@ -1,0 +1,522 @@
+{
+  "body": {
+    "items" : [
+      {
+        "id": 1,
+        "itemId" : 1,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          },
+          {
+            "commentHeader": "Berkay Arslan",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Erdem Yeşilçiçek",
+            "comment": "Selam!"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "itemId" : 2,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "itemId" : 3,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "itemId" : 5,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "itemId" : 6,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "itemId" : 7,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "itemId" : 8,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "itemId" : 10,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "itemId" : 11,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "itemId" : 12,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "itemId" : 2,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": {
+            "firstImage": "boga",
+            "secondImage": "car",
+            "thirdImage": "reklam_1",
+            "fourthImage": "reklam_2"
+          },
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "itemId" : 15,
+        "title": "Lorem Ipsum is simply dummy text of the printing and industry.",
+        "desp":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "time": "14:06",
+        "dateTime": "07.10.2020",
+        "updatedTime": "14:13",
+        "updatedDateTime": "07.10.2020",
+        "writerOptions": {
+          "writerImage": "agency",
+          "writerName": "DHA",
+          "writerNameDesp": "Doğan Haber Ajansı"
+        },
+        "imageOptions": {
+          "images": [
+            {
+              "firstImage": "boga"
+            },
+            {
+              "secondImage": "car"
+            },
+            {
+              "thirdImage": "reklam_1"
+            },
+            {
+              "fourthImage": "reklam_2"
+            }
+          ],
+          "imageDetails": "The standard chunk of Lorem Ipsum used since the 1500s is repro duced below for those interested."
+        },
+        "links": ["Elon Musk", "tesla Motors", "SpaceX", "Kaan İmamoğlu", "Buğra Arslan"],
+        "comments": [
+          {
+            "commentHeader": "Kaan İmamoğlu",
+            "comment": "Selam!"
+          },
+          {
+            "commentHeader": "Buğra Arslan",
+            "comment": "Selam!!"
+          }
+        ]
+      }
+    ]
+  }
+}
