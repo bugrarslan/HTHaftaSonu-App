@@ -12,6 +12,7 @@ import {
 import HeaderBarComponent from "../components/HeaderBarComponent";
 import NavigationBarComponent from "../components/NavigationBarComponent";
 import details from "../data/details.json";
+import databases from "../data/databases.json"
 import imageUtils from "../constants/imageUtils";
 
 const windowWidth = Dimensions.get('window').width;
@@ -60,19 +61,19 @@ const DetailScreen = (props) => {
 
   const linkRenderItem = ({item}) => {
     return (
-        <Text style={{marginHorizontal: 10, textDecorationLine: "underline"}}>{item}</Text>
+        <TouchableOpacity><Text
+            style={{marginHorizontal: 10, textDecorationLine: "underline"}}>{item}</Text></TouchableOpacity>
     )
   }
 
   return (
-      <SafeAreaView style={{backgroundColor: "#FFF8EA", flex: 1}}>
+      <SafeAreaView style={{backgroundColor: "#FFFFFF", flex: 1}}>
         <StatusBar/>
         <HeaderBarComponent navigation={props.navigation}/>
         {details.body.items.map((item, index) => {
           return (
               <ScrollView key={index} contentContainerStyle={{
                 alignItems: "flex-start",
-                justifyContent: "space-between",
                 marginHorizontal: windowWidth / 20
               }}>
                 {
@@ -87,11 +88,7 @@ const DetailScreen = (props) => {
                         marginVertical: 5
                       }}>{item.dateTime} - {item.time} |
                         Güncelleme: {item.updatedDateTime} - {item.updatedTime}</Text>
-                      <Text style={{
-                        fontSize: 10,
-                        fontWeight: "bold",
-                        color: "gray", marginVertical: 5
-                      }}>---------------------------------------------------------------------------------------</Text>
+                      <View style={{borderWidth:0.5, borderStyle:"dashed", borderColor:"#F1F1F1", marginVertical:5}}/>
                       <View style={{flexDirection: "row", marginVertical: 5}}>
                         <View style={{
                           backgroundColor: "#F1F1F1",
@@ -112,29 +109,18 @@ const DetailScreen = (props) => {
                           <Text style={{fontSize: 10, color: "gray"}}>{item.writerOptions.writerNameDesp}</Text>
                         </View>
                       </View>
-                      <Text style={{
-                        fontSize: 10,
-                        fontWeight: "bold",
-                        color: "gray", marginVertical: 5
-                      }}>---------------------------------------------------------------------------------------</Text>
+                      <View style={{borderWidth:0.5, borderStyle:"dashed", borderColor:"#F1F1F1", marginVertical:5}}/>
                       <FlatList data={imageData} renderItem={renderItem} horizontal={true} style={{marginVertical: 5}}/>
                       <Text style={{
                         fontSize: 10,
                         fontWeight: "bold",
                         color: "gray", marginVertical: 5
                       }}>{item.imageOptions.imageDetails}</Text>
-                      <Text style={{
-                        fontSize: 10,
-                        fontWeight: "bold",
-                        color: "gray", marginVertical: 5
-                      }}>---------------------------------------------------------------------------------------</Text>
+                      <View style={{borderWidth:0.5, borderStyle:"dashed", borderColor:"#707070", marginVertical:5}}/>
                       <FlatList data={item.links} renderItem={linkRenderItem} horizontal={true}
-                                style={{marginVertical: 5}}/>
-                      <Text style={{
-                        fontSize: 10,
-                        fontWeight: "bold",
-                        color: "gray", marginVertical: 5
-                      }}>---------------------------------------------------------------------------------------</Text>
+                                style={{marginVertical: 5}}
+                                showsHorizontalScrollIndicator={false}/>
+                      <View style={{borderWidth:0.5, borderStyle:"dashed", borderColor:"#707070", marginVertical:5}}/>
                       <View style={{
                         borderStyle: "dashed",
                         borderWidth: 1,
@@ -259,6 +245,19 @@ const DetailScreen = (props) => {
                         </View>
                       </View>
                       <View style={{height: windowHeight / 15}}/>
+                      <View style={{borderWidth:0.5, borderColor:"#F1F1F1", marginVertical:5}}/>
+                      <Text style={{fontSize:21, fontWeight:"bold"}}>BAKMADAN GEÇME</Text>
+                      <View style={{borderWidth:0.5, borderColor:"#F1F1F1", marginVertical:5}}/>
+                      <View>
+                        {databases.body.items.map((item, index) =>
+                            index < 3 &&
+                            <View style={{height:windowHeight/10, flexDirection:"row", alignItems:"center", width:windowWidth/1.11, justifyContent:"space-between"}} key={index}>
+                              <Image source={imageUtils.car} resizeMode={"cover"} style={{aspectRatio:16/9, width:windowWidth/3}}/>
+                              <Text style={{width:windowWidth/1.9}}>{item.lineOptions.desp}</Text>
+                            </View>
+                        )}
+                      </View>
+
                     </View>
                 }
               </ScrollView>

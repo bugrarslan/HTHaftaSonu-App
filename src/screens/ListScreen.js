@@ -52,7 +52,8 @@ const ListScreen = (props) => {
 
           {
             item.videoButton &&
-                <TouchableOpacity style={{justifyContent:"center",alignItems:"center", borderWidth:2, borderColor:"white", borderRadius:50, marginBottom:30}}>
+                <TouchableOpacity
+                    style={{backgroundColor:"red", justifyContent:"center",alignItems:"center", borderWidth:2, borderColor:"white", borderRadius:50, marginBottom:30}}>
                   <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']} style={{position: 'absolute', width: windowWidth/6, height: '100%', top: 0,borderWidth:0, borderColor:"white", borderRadius:50}}/>
                   <Image source={require("../../assets/1x1/video2.png")} style={{marginVertical:15, width:30, height:30, marginRight:15, marginLeft:19}}/>
                 </TouchableOpacity>
