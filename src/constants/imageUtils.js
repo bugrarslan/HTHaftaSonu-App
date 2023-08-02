@@ -8,4 +8,3 @@ export default imageUtils = {
   woman: require('../../assets/11x16/woman.png'),
   agency:require('../../assets/1x1/agency.png')
 };
-
