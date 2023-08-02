@@ -11,12 +11,12 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient"
 import database from "../data/databases.json"
 import SideLineComponent from "../components/SideLineComponent";
 import imageUtils from "../constants/imageUtils";
 import HeaderBarComponent from "../components/HeaderBarComponent";
 import FooterBarComponent from "../components/FooterBarComponent";
+import LinearGradient from "react-native-linear-gradient";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -51,12 +51,12 @@ const ListScreen = (props) => {
           {headerImageObject != null ? <Image source={headerImageObject} style={{width:windowWidth-120, height:windowHeight/5}} resizeMode={"cover"}/> : null}
 
           {
-            item.videoButton &&
-                <TouchableOpacity
-                    style={{backgroundColor:"red", justifyContent:"center",alignItems:"center", borderWidth:2, borderColor:"white", borderRadius:50, marginBottom:30}}>
-                  <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']} style={{position: 'absolute', width: windowWidth/6, height: '100%', top: 0,borderWidth:0, borderColor:"white", borderRadius:50}}/>
-                  <Image source={require("../../assets/1x1/video2.png")} style={{marginVertical:15, width:30, height:30, marginRight:15, marginLeft:19}}/>
-                </TouchableOpacity>
+              item.videoButton &&
+              <TouchableOpacity
+                  style={{justifyContent:"center",alignItems:"center", borderWidth:2, borderColor:"white", borderRadius:50, marginBottom:30}}>
+                <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']} style={{position: 'absolute', width: windowWidth/6, height: '100%', top: 0,borderWidth:0, borderColor:"white", borderRadius:50}}/>
+                <Image source={require("../../assets/1x1/video2.png")} style={{marginVertical:15, width:30, height:30, marginRight:15, marginLeft:19}}/>
+              </TouchableOpacity>
           }
 
           <Text style={{fontSize:14, color:`${item.textColor}`}}>{item.lineOptions.title}</Text>
@@ -80,11 +80,11 @@ const ListScreen = (props) => {
           }
           {
             item.buttonActive === true ?
-                    <TouchableOpacity
-                        onPress={() => props.navigation.navigate("Detail", item.id)}
-                        style={{borderWidth:1, borderColor:`${item.textColor}`, borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:20}}>
-                      <Text style={{fontSize:25, color:`${item.textColor}`}}>{item.buttonTitle}</Text>
-                    </TouchableOpacity> : null
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Detail", item.id)}
+                    style={{borderWidth:1, borderColor:`${item.textColor}`, borderRadius:20, width:'55%', justifyContent:"center", alignItems:"center", height:"8%", marginBottom:20}}>
+                  <Text style={{fontSize:25, color:`${item.textColor}`}}>{item.buttonTitle}</Text>
+                </TouchableOpacity> : null
           }
 
         </View>
@@ -121,7 +121,7 @@ const ListScreen = (props) => {
 
 
 
-            : coverAdImage != null &&
+              : coverAdImage != null &&
               <ImageBackground source={coverAdImage} style={{width:windowWidth-80, height:windowHeight-280, position:"absolute"}}/>}
         </View>
     )
@@ -135,7 +135,7 @@ const ListScreen = (props) => {
 
           {item.type === "news" ? getNews({item, index}):
               item.type === "ads" ? getAds({item, index}):
-              null}
+                  null}
 
           <View style={styles.number}>
             <Text style={{fontSize:74}}>{index+1}</Text>
@@ -145,22 +145,22 @@ const ListScreen = (props) => {
   }, []);
 
   return(
-    <SafeAreaView style={{backgroundColor:"#FFF8EA", flex:1}}>
-      <StatusBar/>
-      <HeaderBarComponent navigation={props.navigation}/>
-      <ImageBackground source={require("../../assets/1x1/Halkalar.png")} resizeMode="cover" style={{flex:1}}>
-        <FlatList data={data}
-                  renderItem={renderItem}
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                  windowSize={11}
-                  disableVirtualization={true}
-                  maxToRenderPerBatch={15}
-                  contentContainerStyle={{ alignItems:"center", marginTop:windowHeight/10}}
-                  />
-      </ImageBackground>
-      <FooterBarComponent/>
-    </SafeAreaView>
+      <SafeAreaView style={{backgroundColor:"#FFF8EA", flex:1}}>
+        <StatusBar/>
+        <HeaderBarComponent navigation={props.navigation}/>
+        <ImageBackground source={require("../../assets/1x1/Halkalar.png")} resizeMode="cover" style={{flex:1}}>
+          <FlatList data={data}
+                    renderItem={renderItem}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    windowSize={11}
+                    disableVirtualization={true}
+                    maxToRenderPerBatch={15}
+                    contentContainerStyle={{ alignItems:"center", marginTop:windowHeight/10}}
+          />
+        </ImageBackground>
+        <FooterBarComponent/>
+      </SafeAreaView>
   )
 }
 
